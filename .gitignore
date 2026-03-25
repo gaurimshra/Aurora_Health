@@ -1,0 +1,57 @@
+
+# Python bytecode files
+__pycache__
+*.pyc
+*.pyd
+*.pyo
+*.egg
+
+# Virtual environments
+.venv
+env
+venv
+/bin
+/include
+/lib
+/lib64
+/local
+/share
+
+# Editor/IDE-specific files
+.idea/  # For PyCharm/IntelliJ
+.vscode/  # For VS Code (only if you want to ignore all workspace settings)
+*.swp
+*~
+.DS_Store # Mac-specific file
+
+# Build artifacts and distributions
+dist/
+build/
+*.egg-info/
+
+# FastAPI and general Python temporary files
+.pytest_cache/
+.coverage
+htmlcov/
+pytest-cache-files-*/
+*.log
+*.err.log
+.codex-logs/
+backend_service/tests/.tmp/
+backend_service/backend/data/*.db
+backend_service/backend/data/*.sqlite*
+backend_service/backend/data/app_state.json
+backend_service/pytest-cache-files-*/
+frontend/studio/*.log
+frontend/studio/*.err.log
+frontend/web/.next/
+frontend/web/node_modules/
+frontend/web/tsconfig.tsbuildinfo
+frontend/web/.clerk/
+frontend/web/.env.local
+snapshots/**/.venv/
+
+# Sensitive data/environment variables
+.env
+.flaskenv
+secrets.json

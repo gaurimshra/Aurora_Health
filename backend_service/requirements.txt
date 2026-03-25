@@ -1,0 +1,14 @@
+﻿fastapi
+uvicorn
+openai
+pydantic
+python-dotenv
+httpx
+tqdm
+streamlit
+pandas
+pytest
+pyjwt
+pinecone
+sqlalchemy
+alembic

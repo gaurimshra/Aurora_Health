@@ -1,0 +1,34 @@
+{
+  "name": "aurora-web-app",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.18.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^6.18.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.9.2",
+    "gsap": "^3.12.7",
+    "locomotive-scroll": "^4.1.4",
+    "lucide-react": "^0.511.0",
+    "next": "^15.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.3"
+  }
+}
