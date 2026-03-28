@@ -64,6 +64,7 @@ st.markdown(
     .avatar:before { content:""; position:absolute; width:72px; height:72px; border-radius:50%; background:#FFE6DE; top:28px; left:39px; }
     .avatar:after { content:""; position:absolute; width:114px; height:70px; border-radius:58px 58px 24px 24px; background:#FFF4F3; bottom:10px; left:18px; }
     .empty { padding:20px; border-radius:22px; border:1px dashed rgba(124,108,246,.24); background:rgba(255,255,255,.78); color:var(--muted); }
+    .watermark { position:fixed; right:16px; bottom:10px; z-index:9999; font-size:.76rem; font-weight:700; letter-spacing:.04em; color:rgba(31,41,55,.55); background:rgba(255,255,255,.72); border:1px solid rgba(124,108,246,.14); padding:.3rem .55rem; border-radius:999px; backdrop-filter:blur(6px); pointer-events:none; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -220,7 +221,7 @@ def render_auth():
             <div class="hero">
                 <div class="eyebrow">Aurora Health</div>
                 <h1>Health support that feels like a product, not a prototype.</h1>
-                <p>Track workouts, cycle health, progress, weekly reports, and AI coaching in a softer, more readable studio.</p>
+                <p>Track workouts, cycle health, progress, weekly reports, and AI coaching .</p>
                 <div class="pillrow">
                     <span class="pill">Login flow</span>
                     <span class="pill">Cycle-aware</span>
@@ -233,7 +234,7 @@ def render_auth():
             unsafe_allow_html=True,
         )
     with right:
-        st.markdown("<div class='shell'><div class='eyebrow'>Welcome</div><h2 style='margin:.35rem 0;'>Login or create your account</h2><p class='copy' style='color:var(--muted); margin:0 0 1rem 0;'>The app now starts with authentication instead of dropping straight into the dashboard.</p></div>", unsafe_allow_html=True)
+        st.markdown("<div class='shell'><div class='eyebrow'>Welcome</div><h2 style='margin:.35rem 0;'>Login or create your account</h2><p class='copy' style='color:var(--muted); margin:0 0 1rem 0;'>The app starts with authentication </p></div>", unsafe_allow_html=True)
         tabs = st.tabs(["Login", "Sign Up", "Clerk Token"])
         with tabs[0]:
             with st.form("login_form"):
@@ -375,7 +376,7 @@ def render_home(snapshot):
     women = snapshot.get("women") or {}
     history = snapshot.get("history") or {}
     report = snapshot.get("weekly_report") or {}
-    section_header("Overview", "A cleaner daily dashboard", "This replaces the old developer-tool feeling with cards, hierarchy, and a softer wellness look.")
+    section_header("Overview", "A daily dashboard", "The cards, hierarchy, and a softer wellness look.")
     if needs_profile(snapshot):
         st.info("Finish your profile to unlock better personalization and stronger plans.")
     row = st.columns(4)
@@ -391,7 +392,7 @@ def render_home(snapshot):
     with left:
         card("This Week's Focus", [f"Goal: {profile.get('goal', 'Complete your profile')}", f"Energy trend: {progress.get('trend', 'No trend yet')}", f"Next period: {women.get('next_period_start', 'Not enough data')}", f"Workout logs: {len(history.get('workout_logs', []))}", f"Diet logs: {len(history.get('diet_logs', []))}"])
     with right:
-        st.markdown("<div class='card' style='text-align:center;'><div class='avatar'></div><div class='ctitle'>Aurora AI Coach</div><div class='copy' style='color:var(--muted)'>The old avatar was fragile because it depended on local/external image assets. This one is built directly in CSS, so it always renders.</div></div>", unsafe_allow_html=True)
+        st.markdown("<div class='card' style='text-align:center;'><div class='avatar'></div><div class='ctitle'>Aurora AI Coach</div><div class='copy' style='color:var(--muted)'>..... always yours... .</div></div>", unsafe_allow_html=True)
     progress_cols = st.columns(2, gap="large")
     adherence = float(progress.get("adherence_score") or 0)
     energy = float(progress.get("energy_level") or 0)
@@ -431,7 +432,7 @@ def render_plans(snapshot):
     profile = snapshot.get("profile") or {}
     women = snapshot.get("women") or {}
     lifestyle = profile.get("lifestyle") or {}
-    section_header("Plans", "Generate a plan that reads well", "Plan generation is still AI-backed, but the output is now chunked into product-style cards.")
+    section_header("Plans", "Generate a plan that reads well", "Plan generation is AI-backed,")
     with st.form("plan_form"):
         c1, c2, c3 = st.columns(3, gap="large")
         with c1:
@@ -474,7 +475,7 @@ def render_plans(snapshot):
 
 def render_women_health(snapshot):
     women = snapshot.get("women") or {}
-    section_header("Women's Health", "Cycle-aware view with clearer hierarchy", "Metrics and guidance are grouped into smaller, more readable blocks.")
+    section_header("Women's Health", "Cycle-aware view with hierarchy", ".")
     left, right = st.columns([0.95, 1.05], gap="large")
     with left:
         with st.form("period_form"):
@@ -516,7 +517,7 @@ def render_women_health(snapshot):
 
 
 def render_tracking():
-    section_header("Daily Tracking", "Two clean logging flows", "Workout and nutrition logging stay explicit but no longer feel buried in a dense studio screen.")
+    section_header("Daily Tracking", "Two clean logging flows", "Workout and nutrition logging .")
     left, right = st.columns(2, gap="large")
     with left:
         with st.form("workout_log_form"):
@@ -551,7 +552,7 @@ def render_tracking():
 def render_progress(snapshot):
     progress = snapshot.get("progress") or {}
     streak = snapshot.get("streak") or {}
-    section_header("Progress", "Mood, adherence, and consistency", "Progress, feedback, and streak check-ins are grouped into separate actions with less noise.")
+    section_header("Progress", "Mood, adherence, and consistency", "Progress, feedback, and streak check-ins .")
     left, right = st.columns(2, gap="large")
     with left:
         with st.form("progress_form"):
@@ -609,7 +610,7 @@ def render_progress(snapshot):
 def render_memory_history(snapshot):
     history = snapshot.get("history") or {}
     report = snapshot.get("weekly_report") or {}
-    section_header("Memory & History", "Search and export with less clutter", "Search results are separated from long history tables, and each record set stays collapsed by default.")
+    section_header("Memory & History", "Search and export ", "Search results")
     cols = st.columns([1.2, 0.8], gap="large")
     with cols[0]:
         with st.form("memory_search_form"):
@@ -638,7 +639,7 @@ def render_memory_history(snapshot):
 
 def render_weekly_report(snapshot):
     report = snapshot.get("weekly_report")
-    section_header("Weekly Report", "A readable weekly summary", "Wins, risks, and recommendations now sit in separate cards for faster scanning.")
+    section_header("Weekly Report", "A  weekly summary", "Wins, risks, and recommendations .")
     if not report:
         st.markdown("<div class='empty'>Weekly report is not available yet.</div>", unsafe_allow_html=True)
         return
@@ -654,7 +655,7 @@ def render_weekly_report(snapshot):
 
 
 def render_coach():
-    section_header("Aurora Coach", "Focused coaching screen", "This view keeps the AI response central instead of surrounding it with too much chrome.")
+    section_header("Aurora Coach", "Focused coaching screen", "The AI response central .")
     with st.form("coach_form"):
         message = st.text_area("Ask Aurora", placeholder="I lose motivation during luteal phase and miss protein targets. How should my next 7 days change?", height=160)
         submitted = st.form_submit_button("Get Coaching", use_container_width=True)
@@ -675,6 +676,7 @@ def render_coach():
 
 
 init_state()
+st.markdown("<div class='watermark'>Gauri_mshra</div>", unsafe_allow_html=True)
 render_sidebar()
 if not st.session_state.auth_user:
     render_auth()
@@ -705,5 +707,5 @@ elif section == "Weekly Report":
 elif section == "Aurora Coach":
     render_coach()
 elif section == "Profile":
-    section_header("Profile", "Personal details and health context", "Use this as the onboarding step after signup and as the place to refine personalization later.")
+    section_header("Profile", "Personal details and health context", " onboarding step .")
     render_profile_form(snapshot, submit_label="Save Profile")
