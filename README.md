@@ -39,6 +39,7 @@ Frontend:
 - React 19
 - TypeScript
 - Tailwind CSS
+- Node.js 20.18.0+
 
 Studio:
 
@@ -144,7 +145,21 @@ From the repo root:
 run_frontend.bat
 ```
 
+Alias:
+
+```bat
+run_studio.bat
+```
+
 The studio app runs on `http://127.0.0.1:8501`.
+
+The current Streamlit studio includes:
+
+- login/signup-first entry flow
+- persistent sidebar navigation
+- top summary bar
+- card-based dashboard and plan views
+- local avatar rendering without external asset dependency
 
 ### 4. Start Everything
 
@@ -177,6 +192,16 @@ python -m pytest -q tests
 - The Next.js app is the main end-user frontend. The Streamlit app is better treated as a studio/admin console.
 
 ## Deployment
+
+Deploy the backend first, then point the web and Streamlit apps at the deployed backend URL.
+
+Suggested order:
+
+1. Deploy `backend_service`
+2. Set `NEXT_PUBLIC_BACKEND_URL` for `frontend/web`
+3. Set the Streamlit API base URL to the deployed backend
+4. Deploy `frontend/web`
+5. Deploy `frontend/studio`
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for a production-oriented deployment checklist and service split.
 
